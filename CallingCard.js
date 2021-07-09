@@ -18,7 +18,11 @@ class CallingCard {
     // Delete minutes from the card
     useMinutes(minutes) {
         let delMinutes = this.remainingMinutes - minutes;
-        return this.remainingMinutes = delMinutes;
+        if (delMinutes < 0) {
+            return this.remainingMinutes = 0;
+        } else {
+            return this.remainingMinutes = delMinutes;
+        }
     }
 }
 
