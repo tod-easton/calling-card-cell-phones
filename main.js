@@ -40,45 +40,45 @@ import CellPhone from './CellPhone.js';
 // card.getRemainingMinutes();   // return 0
 // console.log(card.getRemainingMinutes());
 
+//PASSED
+// let card1 = new CallingCard(11);
+// card1.addDollars(3);         // 300 cents / 11 = 27.2727272... = 27 minutes added
+// console.log(card1);
+// card1.getRemainingMinutes(); // => returns 27
+// console.log(card1.getRemainingMinutes());
 
+// let card2 = new CallingCard(17);
+// card2.addDollars(3);         // 300 cents / 17 = 17.647... = 17 minutes added
+// console.log(card2);
+// card2.getRemainingMinutes(); // => returns 17
+// console.log(card2.getRemainingMinutes());
 
-let card1 = new CallingCard(11);
-card1.addDollars(3);         // 300 cents / 11 = 27.2727272... = 27 minutes added
-console.log(card1);
-card1.getRemainingMinutes(); // => returns 27
-console.log(card1.getRemainingMinutes());
-
-let card2 = new CallingCard(17);
-card2.addDollars(3);         // 300 cents / 17 = 17.647... = 17 minutes added
-console.log(card2);
-card2.getRemainingMinutes(); // => returns 17
-console.log(card2.getRemainingMinutes());
-
-
-// let card = new CallingCard(10);
+//PASSED
+// let card = new CallingCard(10);  //'card' instance
 // card.addDollars(1);
+// console.log(card);
 
-// let phone = new CellPhone(card);
+// let phone = new CellPhone(card);  //dependency injection
+// console.log(phone);
 
 
+let card = new CallingCard(10);
+card.addDollars(1); // add 100 cents @ 10 cents/minute = 10 minutes added
 
-// let card = new CallingCard(10);
-// card.addDollars(1); // add 100 cents @ 10 cents/minute = 10 minutes added
+let phone = new CellPhone(card);
+phone.isTalking();  // => returns false
 
-// let phone = new CellPhone(card);
-// phone.isTalking();  // => returns false
+phone.call("555-1212");
+phone.isTalking();  // => returns true
 
-// phone.call("555-1212");
-// phone.isTalking();  // => returns true
+phone.tick();       // simulate a minute going by
+phone.tick();       // simulate another minute going by
 
-// phone.tick();       // simulate a minute going by
-// phone.tick();       // simulate another minute going by
+phone.endCall();
+phone.isTalking();  // => returns false (because the call is over)
+phone.getHistory(); // => returns "555-1212 (2 minutes)"
 
-// phone.endCall();
-// phone.isTalking();  // => returns false (because the call is over)
-// phone.getHistory(); // => returns "555-1212 (2 minutes)"
-
-// card.getRemainingMinutes() // => return 8, because the call lasted 2 minutes;
+card.getRemainingMinutes() // => return 8, because the call lasted 2 minutes;
 
 
 
