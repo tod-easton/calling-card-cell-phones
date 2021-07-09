@@ -6,12 +6,12 @@ class CellPhone {
         this.talking === false;
     }
 
+    isTalking() {
+        return this.talking;
+    }
+
     call(phoneNumber) {
-        if (phoneNumber != null) {
-            return this.talking === true
-        } else {
-            return this.talking === false
-        }
+        this.talking = true;
     }
 
     tick() {
