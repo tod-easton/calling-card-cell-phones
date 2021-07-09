@@ -1,1 +1,1 @@
-export default CallingCards;
+export default CallingCard;
