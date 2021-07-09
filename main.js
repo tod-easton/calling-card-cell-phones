@@ -1,5 +1,6 @@
 import CallingCard from './CallingCard.js';
-// import CellPhone from './CellPhone.js';
+import CellPhone from './CellPhone.js';
+
 
 const CallingCard = require('./CallingCard.js');
 
