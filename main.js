@@ -10,18 +10,22 @@ let card2 = new CallingCard(15); // card2 costs 15 cents / minute to use
 // console.log(card1)
 
 
-// let card = new CallingCard(20); // this card costs 20 cents / minute to use
+let card = new CallingCard(20); // this card costs 20 cents / minute to use
 
-// card.addDollars(1);           // add $1 (100 cents).  100 cents / 20 cents/minute = 5 minutes added
+card.addDollars(1);           // add $1 (100 cents).  100 cents / 20 cents/minute = 5 minutes added
+// console.log(card);
+card.getRemainingMinutes();   // returns 5  (5 minutes left)
+// console.log(card.getRemainingMinutes());
 
-// card.getRemainingMinutes();   // returns 5  (5 minutes left)
+card.useMinutes(3);
+// console.log(card);
+card.getRemainingMinutes();   // return 2
+// console.log(card.getRemainingMinutes());
 
-// card.useMinutes(3);
-// card.getRemainingMinutes();   // return 2
-
-// card.useMinutes(1);
-// card.getRemainingMinutes();   // returns 1
-
+card.useMinutes(1);
+console.log(card);
+card.getRemainingMinutes();   // returns 1
+console.log(card.getRemainingMinutes());
 
 
 // let card = new CallingCard(5); // this card costs 5 cents / minute to use

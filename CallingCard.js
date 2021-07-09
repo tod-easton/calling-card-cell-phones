@@ -1,26 +1,25 @@
 class CallingCard {
-    constructor(centsPerMinute, remainingMinutes, useMinutes) {
+    constructor(centsPerMinute, remainingMinutes, usageMinutes) {
         this.centsPerMinute = centsPerMinute;
         this.remainingMinutes = remainingMinutes;
-        this.useMinutes = useMinutes;
+        this.usageMinutes = usageMinutes;  //needed ?
     }
 
-    // Add money to the card.
+    // Add money/minutes to the card.
     addDollars(money) {
-        let dollerToCents = money * 100;
-        return this.centsPerMinute += dollerToCents;  //placeholder until tested 
+        let addMinutes = money * 100 / this.centsPerMinute;
+        return this.remainingMinutes = addMinutes;
     }
 
-    // Check how many minutes are left.  don't need
-    // get remainingMinutes() {
-    //     return this.remainingMinutes;  //placeholder until tested
-    // }
+    getRemainingMinutes() {
+        return this.remainingMinutes;
+    }
 
-    
-    // Decrease the number of minutes left. don't need
-    // set useMinutes(minutes) {
-    //     this.useMinutes = minutes  //placeholder until tested
-    // }
+    // Delete minutes from the card
+    useMinutes(minutes) {
+        let delMinutes = this.remainingMinutes - minutes;
+        return this.remainingMinutes = delMinutes;
+    }
 }
 
 export default CallingCard;
