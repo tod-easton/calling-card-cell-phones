@@ -8,7 +8,12 @@ class CallingCard {
     // Add money/minutes to the card.
     addDollars(money) {
         let addMinutes = money * 100 / this.centsPerMinute;
-        return this.remainingMinutes = addMinutes;
+        if (addMinutes % 2 === 0) {
+            return this.remainingMinutes = addMinutes;
+        } else {
+            return this.remainingMinutes = Math.round(addMinutes);
+        }
+        
     }
 
     getRemainingMinutes() {
