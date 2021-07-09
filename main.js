@@ -2,12 +2,12 @@ import CallingCard from './CallingCard.js';
 import CellPhone from './CellPhone.js';
 
 
-const CallingCard = require('./CallingCard.js');
+// const CallingCard = require('./CallingCard.js');  //handled with import above
 
 let card1 = new CallingCard(10); // card1 costs 10 cents / minute to use
-
+// console.log(card1)
 let card2 = new CallingCard(15); // card2 costs 15 cents / minute to use
-
+// console.log(card1)
 
 
 // let card = new CallingCard(20); // this card costs 20 cents / minute to use
