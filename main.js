@@ -109,10 +109,10 @@ phone.tick();       // simulate a minute going by
 phone.endCall();
 
 phone.getHistory(); // => returns "555-1111 (1 minute), 555-2222 (2 minutes)"
-// console.log(phone.getHistory());
+console.log(phone.getHistory());
 
 card.getRemainingMinutes() // => return 7, because the phone used 3 minutes
-// console.log(card.getRemainingMinutes());
+console.log(card.getRemainingMinutes());
 // console.log(card);
 // console.log(phone);
 
