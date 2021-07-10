@@ -17,7 +17,8 @@ class CellPhone {
     }
 
     tick() {
-        this.ccProps.forEach(prop => prop.useMinutes());
+        this.ccProps.forEach(prop => prop.useMinutes(1));
+        // console.log(this.ccProps);
     }
 
     endCall() {

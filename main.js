@@ -76,7 +76,9 @@ console.log(phone);
 // console.log(phone.isTalking());
 
 phone.tick();       // simulate a minute going by
+console.log(phone.ccProps);
 phone.tick();       // simulate another minute going by
+console.log(phone.ccProps);
 
 // phone.endCall();
 // phone.isTalking();  // => returns false (because the call is over)
