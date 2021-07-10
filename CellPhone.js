@@ -28,8 +28,10 @@ class CellPhone {
     }
 
     getHistory() {
-        let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);
+        let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);  // can't get .find() to work, try to refactor later
         let rmValue = rmResult[0];
+        let currentHistory = this.history = `${this.calledNumber} (${rmValue} minutes)`;
+        console.log(currentHistory);
         // console.log(`${this.calledNumber} (${rmValue} minutes)`);
         return `${this.calledNumber} (${rmValue} minutes)`;
     }
