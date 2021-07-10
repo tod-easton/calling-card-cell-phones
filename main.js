@@ -99,6 +99,7 @@ let phone = new CellPhone(card);
 phone.call("555-1111");
 phone.tick();       // simulate a minute going by
 phone.endCall();
+console.log(phone.getHistory());
 
 phone.call("555-2222");
 phone.tick();       // simulate a minute going by
@@ -106,6 +107,7 @@ phone.tick();       // simulate a minute going by
 phone.endCall();
 
 phone.getHistory(); // => returns "555-1111 (1 minute), 555-2222 (2 minutes)"
+console.log(phone.getHistory());
 
 card.getRemainingMinutes() // => return 7, because the phone used 3 minutes
 
