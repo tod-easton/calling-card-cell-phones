@@ -30,14 +30,14 @@ class CellPhone {
     getHistory() {
         let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);  // can't get .find() to work, try to refactor later
         let rmValue = rmResult[0];
-        let currentHistory = `${this.calledNumber} (${rmValue} minutes)`;
+        let currentHistory = null;
         // console.log(currentHistory);
 
         if (currentHistory === null) {
-            this.history = `${this.calledNumber} (${rmValue} minutes)`;
+            return this.history = `${this.calledNumber} (${rmValue} minutes)`;
             // console.log(currentHistory);
         } else {
-            currentHistory += `${this.calledNumber} (${rmValue} minutes)`;
+            return currentHistory += `${this.calledNumber} (${rmValue} minutes)`;
             // console.log(currentHistory);
         //     let newHistory = this.history;
         //     console.log('hi tod');
@@ -48,7 +48,7 @@ class CellPhone {
         
         // console.log(`${this.calledNumber} (${rmValue} minutes)`);
         // return `${this.calledNumber} (${rmValue} minutes)`;
-        return this.history = currentHistory;
+        // return this.history = currentHistory;
     }
 }
 
