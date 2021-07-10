@@ -6,10 +6,11 @@ class CellPhone {
         // this.ccProps = [callingCard];
         this.talking = false;
         this.calledNumber = [];
-        this.availMin = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);
+        // this.availMin = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);
         // console.log(this.availMin);
-        this.usedMinCount = [];
+        // this.usedMinCount = [];
         this.minsBeforeCall = 0;
+        // this.rmResult = 0;
         this.history = [];
     }
 
@@ -18,8 +19,6 @@ class CellPhone {
     }
 
     call(number) {
-        // this.calledNumber.push(phoneNumber);
-        // this.history.push(phoneNumber);
         let phoneNumber = number + ' ';
         this.talking = true;
         this.history.push(phoneNumber);
@@ -27,82 +26,32 @@ class CellPhone {
         // Get remainingMinutes at start of call to subtract remainingMinutes after call to get call duration; below in endCall()
         this.minsBeforeCall = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);
         // console.log('mins before call ' + this.minsBeforeCall);
-
-        // let currentHistory = null;
-        // console.log(currentHistory);
-
-        // if (currentHistory === null) {
-        //     console.log(currentHistory);
-        //     return this.history = `${this.calledNumber} (${rmValue} minutes)`;
-            
-        // } else {
-        //     console.log(currentHistory);
-        //     return currentHistory += `${this.calledNumber} (${rmValue} minutes)`;
-            
-            //     let usedMinCount = this.history;
-            //     console.log('hi tod');
-            //     this.history += `${this.calledNumber} (${rmValue} minutes)`;
-            //     console.log(this.history);
-            // }
-            // let currentHistory = this.history = `${this.calledNumber} (${rmValue} minutes)`;
-
-            // console.log(`${this.calledNumber} (${rmValue} minutes)`);
-            // return `${this.calledNumber} (${rmValue} minutes)`;
     }
 
     tick() {
+        // if () 
         this.callingCard.forEach(prop => prop.useMinutes(1));  // since this runs CallingCard.useMinutes() on every element/property (including centsPerMinute); is that most efficient?
 
-        // this.callingCard.forEach(prop => prop.useMinutes(1));  // since this runs CallingCard.useMinutes() on every element/property (including centsPerMinute); is that most efficient?
-
-        // // let amResult = this.callingCard.map(({ centsPerMinute }) => centsPerMinute);  // can't get .find() to work, try to refactor later
-        // let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);  // can't get .find() to work, try to refactor later
-        // // let amValue = amResult[0];
-        // // console.log('avail minutes ' + amValue);
-        // let talkMin = this.availMin - rmResult[0];
-        // // console.log('remaing minutes ' + rmValue);
-        // // let usedMinCount = [];
-        
-        // // this.usedMinCount.push(rmValue);
-        // this.history.push(talkMin);
-        
-
-        // let currentHistory = null;
-        // console.log(currentHistory);
-
-        // if (currentHistory === null) {
-        //     console.log(currentHistory);
-        //     return this.history = `${this.calledNumber} (${rmValue} minutes)`;
-            
+        // if (this.rmResult != 0) {
+        //     this.callingCard.forEach(prop => prop.useMinutes(1));  // since this runs CallingCard.useMinutes() on every element/property (including centsPerMinute); is that most efficient?
         // } else {
-        //     console.log(currentHistory);
-        //     return currentHistory += `${this.calledNumber} (${rmValue} minutes)`;
-            
-            //     let usedMinCount = this.history;
-            //     console.log('hi tod');
-            //     this.history += `${this.calledNumber} (${rmValue} minutes)`;
-            //     console.log(this.history);
-            // }
-            // let currentHistory = this.history = `${this.calledNumber} (${rmValue} minutes)`;
+        //     this.endCall();
+        // }
 
-            // console.log(`${this.calledNumber} (${rmValue} minutes)`);
-            // return `${this.calledNumber} (${rmValue} minutes)`;
-        }
-    
+    }
+
 
     endCall() {
         this.talking = false;
 
         // let amResult = this.callingCard.map(({ centsPerMinute }) => centsPerMinute);  // can't get .find() to work, try to refactor later
-        
+
         // Collected remainingMinutes at start of call above call(); to subtract remainingMinutes after call to get call duration
         let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);  // can't get .find() to work, try to refactor later
-        // console.log(rmResult);
-        // let amValue = amResult[0];
-        // console.log('avail minutes ' + amValue);
-        let talkMin = this.minsBeforeCall - rmResult[0];
+        let rmValue = rmResult[0];
         // console.log('remaing minutes ' + rmValue);
-        // let usedMinCount = [];
+
+        let talkMin = this.minsBeforeCall - rmValue;
 
         let talkMinRes = '';
         if (this.history.length === 1) {
@@ -115,9 +64,6 @@ class CellPhone {
     }
 
     getHistory() {
-        // return this.history = `${this.calledNumber} (${this.usedMinCount} minutes)`;
-        // console.log(this.history.map.forEach());
-        // return this.history.forEach();
         let arrayElems = '';
         for (var i = 0; i < this.history.length; i++) {
             arrayElems += this.history[i];
