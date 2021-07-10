@@ -5,7 +5,7 @@ class CallingCard {
         // this.usageMinutes = usageMinutes;  //not needed, leaving so object is easier to read in console.log()
     }
 
-    // Add money/minutes to the card.
+    // Add money/minutes to the card
     addDollars(money) {
         let addMinutes = money * 100 / this.centsPerMinute;
         if (addMinutes % 2 === 0) {
@@ -15,7 +15,8 @@ class CallingCard {
         }
         
     }
-
+    
+    // Get minutes on card
     getRemainingMinutes() {
         return this.remainingMinutes;
     }
@@ -26,6 +27,7 @@ class CallingCard {
         if (delMinutes < 0) {
             return this.remainingMinutes = 0;
         } else {
+            // console.log(delMinutes);
             return this.remainingMinutes = delMinutes;
         }
     }
