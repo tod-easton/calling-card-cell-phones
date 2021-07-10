@@ -64,7 +64,7 @@ import CellPhone from './CellPhone.js';
 
 let card = new CallingCard(10);
 card.addDollars(1); // add 100 cents @ 10 cents/minute = 10 minutes added
-console.log(card);
+// console.log(card);
 
 let phone = new CellPhone(card);
 // console.log(phone);
@@ -79,14 +79,15 @@ phone.tick();       // simulate a minute going by
 // console.log(phone.ccProps);
 phone.tick();       // simulate another minute going by
 // console.log(phone.ccProps);
+// console.log(phone);
+
+phone.endCall();
+phone.isTalking();  // => returns false (because the call is over)
+phone.getHistory(); // => returns "555-1212 (2 minutes)"
 console.log(phone);
 
-// phone.endCall();
-// phone.isTalking();  // => returns false (because the call is over)
-// phone.getHistory(); // => returns "555-1212 (2 minutes)"
-
-// card.getRemainingMinutes() // => return 8, because the call lasted 2 minutes;
-
+card.getRemainingMinutes() // => return 8, because the call lasted 2 minutes;
+console.log(card);
 
 
 // let card = new CallingCard(10);

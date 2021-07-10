@@ -21,7 +21,7 @@ class CellPhone {
     }
 
     endCall() {
-
+        this.talking = false;
     }
 
     getHistory() {
