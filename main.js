@@ -91,28 +91,28 @@ import CellPhone from './CellPhone.js';
 // card.getRemainingMinutes() // => return 8, because the call lasted 2 minutes;
 // console.log(card);
 
+//PASSED
+// let card = new CallingCard(10);
+// card.addDollars(1); // add 100 cents @ 10 cents/minute = 10 minutes added
 
-let card = new CallingCard(10);
-card.addDollars(1); // add 100 cents @ 10 cents/minute = 10 minutes added
+// let phone = new CellPhone(card);
+// // console.log(card);
+// // console.log(phone);
+// phone.call("555-1111");
+// phone.tick();       // simulate a minute going by
+// phone.endCall();
+// // console.log(phone.getHistory());
 
-let phone = new CellPhone(card);
-// console.log(card);
-// console.log(phone);
-phone.call("555-1111");
-phone.tick();       // simulate a minute going by
-phone.endCall();
+// phone.call("555-2222");
+// phone.tick();       // simulate a minute going by
+// phone.tick();       // simulate a minute going by
+// phone.endCall();
+
+// phone.getHistory(); // => returns "555-1111 (1 minute), 555-2222 (2 minutes)"
 // console.log(phone.getHistory());
 
-phone.call("555-2222");
-phone.tick();       // simulate a minute going by
-phone.tick();       // simulate a minute going by
-phone.endCall();
-
-phone.getHistory(); // => returns "555-1111 (1 minute), 555-2222 (2 minutes)"
-console.log(phone.getHistory());
-
-card.getRemainingMinutes() // => return 7, because the phone used 3 minutes
-console.log(card.getRemainingMinutes());
+// card.getRemainingMinutes() // => return 7, because the phone used 3 minutes
+// console.log(card.getRemainingMinutes());
 // console.log(card);
 // console.log(phone);
 

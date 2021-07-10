@@ -9,7 +9,7 @@ class CellPhone {
         this.availMin = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);
         // console.log(this.availMin);
         this.usedMinCount = [];
-        // this.talkMin = 0;
+        this.minsBeforeCall = 0;
         this.history = [];
     }
 
@@ -23,6 +23,10 @@ class CellPhone {
         let phoneNumber = number + ' ';
         this.talking = true;
         this.history.push(phoneNumber);
+
+        // Get remainingMinutes at start of call to subtract remainingMinutes after call to get call duration; below in endCall()
+        this.minsBeforeCall = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);
+        // console.log('mins before call ' + this.minsBeforeCall);
 
         // let currentHistory = null;
         // console.log(currentHistory);
@@ -90,10 +94,13 @@ class CellPhone {
         this.talking = false;
 
         // let amResult = this.callingCard.map(({ centsPerMinute }) => centsPerMinute);  // can't get .find() to work, try to refactor later
+        
+        // Collected remainingMinutes at start of call above call(); to subtract remainingMinutes after call to get call duration
         let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);  // can't get .find() to work, try to refactor later
+        // console.log(rmResult);
         // let amValue = amResult[0];
         // console.log('avail minutes ' + amValue);
-        let talkMin = this.availMin - rmResult[0];
+        let talkMin = this.minsBeforeCall - rmResult[0];
         // console.log('remaing minutes ' + rmValue);
         // let usedMinCount = [];
 
