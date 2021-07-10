@@ -1,7 +1,7 @@
 // import CallingCard from "./CallingCard";
 
 class CellPhone {
-    constructor(callingCard, history) {
+    constructor(callingCard) {
         this.callingCard = [callingCard];
         // this.ccProps = [callingCard];
         this.talking = false;
@@ -9,7 +9,7 @@ class CellPhone {
         this.availMin = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);
         // console.log(this.availMin);
         this.usedMinCount = [];
-        this.history = history;
+        this.history = [];
     }
 
     isTalking() {
@@ -17,7 +17,8 @@ class CellPhone {
     }
 
     call(phoneNumber) {
-        this.calledNumber.push(phoneNumber);
+        // this.calledNumber.push(phoneNumber);
+        this.history.push(phoneNumber);
         this.talking = true;
     }
 
@@ -28,12 +29,13 @@ class CellPhone {
         let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);  // can't get .find() to work, try to refactor later
         // let amValue = amResult[0];
         // console.log('avail minutes ' + amValue);
-        let rmValue = rmResult[0];
+        let talkMin = this.availMin - rmResult[0];
         // console.log('remaing minutes ' + rmValue);
         // let usedMinCount = [];
-        this.usedMinCount.push(rmValue);
-        // console.log(usedMinCount);
-
+        
+        // this.usedMinCount.push(rmValue);
+        this.history.push(talkMin);
+        
 
         // let currentHistory = null;
         // console.log(currentHistory);
@@ -63,7 +65,7 @@ class CellPhone {
     }
 
     getHistory() {
-        this.history = `${this.calledNumber} (${this.usedMinCount} minutes)`
+        // this.history = `${this.calledNumber} (${this.usedMinCount} minutes)`
         console.log(this.history);
     }
 
