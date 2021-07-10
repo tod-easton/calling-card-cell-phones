@@ -20,9 +20,7 @@ class CellPhone {
     }
 
     tick() {
-        this.callingCard.forEach(prop => prop.useMinutes(1));  // since this runs useMinutes() on every element/property (including centsPerMinute); is that most efficient?
-        this.remMin;
-        // console.log(rm);
+        this.callingCard.forEach(prop => prop.useMinutes(1));  // since this runs CallingCard.useMinutes() on every element/property (including centsPerMinute); is that most efficient?
     }
 
     endCall() {
@@ -30,7 +28,10 @@ class CellPhone {
     }
 
     getHistory() {
-        // return this.calledNumber + 
+        let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);
+        let rmValue = rmResult[0];
+        // console.log(`${this.calledNumber} (${rmValue} minutes)`);
+        return `${this.calledNumber} (${rmValue} minutes)`;
     }
 
 }
