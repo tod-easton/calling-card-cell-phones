@@ -1,8 +1,8 @@
 class CallingCard {
-    constructor(centsPerMinute, remainingMinutes, usageMinutes) {
+    constructor(centsPerMinute, remainingMinutes) {
         this.centsPerMinute = centsPerMinute;
         this.remainingMinutes = remainingMinutes;
-        this.usageMinutes = usageMinutes;  //not needed, leaving so object is easier to read in console.log()
+        // this.usageMinutes = usageMinutes;  //not needed, leaving so object is easier to read in console.log()
     }
 
     // Add money/minutes to the card.

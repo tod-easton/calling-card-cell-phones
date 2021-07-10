@@ -1,9 +1,11 @@
 // import CallingCard from "./CallingCard";
 
 class CellPhone {
-    constructor(callingCard) {
+    constructor(callingCard, history) {
         this.callingCard = callingCard;
-        this.talking === false;
+        this.ccProps = [callingCard];
+        this.talking = false;
+        this.history = history;
     }
 
     isTalking() {
@@ -15,16 +17,16 @@ class CellPhone {
     }
 
     tick() {
-
+        this.ccProps.forEach(prop => prop.useMinutes());
     }
 
     endCall() {
 
     }
 
-    getHistory() {
-
-    }
+    // getHistory() {
+    //     return this.history = this.history;
+    // }
 
 }
 
