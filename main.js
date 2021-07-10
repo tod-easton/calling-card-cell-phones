@@ -67,18 +67,19 @@ card.addDollars(1); // add 100 cents @ 10 cents/minute = 10 minutes added
 console.log(card);
 
 let phone = new CellPhone(card);
-console.log(phone);
-// phone.isTalking();  // => returns false
+// console.log(phone);
+phone.isTalking();  // => returns false
 // console.log(phone.isTalking());
 
-// phone.call("555-1212");
-// phone.isTalking();  // => returns true
+phone.call("555-1212");
+phone.isTalking();  // => returns true
 // console.log(phone.isTalking());
 
 phone.tick();       // simulate a minute going by
-console.log(phone.ccProps);
+// console.log(phone.ccProps);
 phone.tick();       // simulate another minute going by
-console.log(phone.ccProps);
+// console.log(phone.ccProps);
+console.log(phone);
 
 // phone.endCall();
 // phone.isTalking();  // => returns false (because the call is over)
