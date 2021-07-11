@@ -37,7 +37,7 @@ class CellPhone {
     endCall() {
         this.talking = false;
 
-        // Get remainingMinutes at START of call to subtract remainingMinutes AFTER call to get call duration: above call()
+        // Get remainingMinutes at START of call to subtract remainingMinutes AFTER call to get call duration: above in call()
         let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);  // can't get .find() to work, try to refactor later
         let rmValue = rmResult[0];
 
