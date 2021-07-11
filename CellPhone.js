@@ -4,7 +4,7 @@ class CellPhone {
     constructor(callingCard) {
         this.callingCard = [callingCard];
         this.talking = false;
-        this.calledNumber = [];
+        this.calledNumber = null;
         this.minsBeforeCall = 0;
         this.history = [];
     }
@@ -14,13 +14,12 @@ class CellPhone {
     }
 
     call(number) {
-        let phoneNumber = number + ' ';
         this.talking = true;
-        this.history.push(phoneNumber);
+        this.calledNumber = number + ' ';
+        this.history.push(this.calledNumber);
 
         // Get remainingMinutes at start of call to subtract remainingMinutes after call to get call duration; below in endCall()
         this.minsBeforeCall = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);
-        // console.log('mins before call ' + this.minsBeforeCall);
     }
 
     tick() {
@@ -28,7 +27,8 @@ class CellPhone {
         // console.log(checkRemaingMinutes);
         if (checkRemaingMinutes === 1) {
             this.callingCard.forEach(prop => prop.useMinutes(1));
-            // this.cardEmpty;
+            let cardEmpty = `(cut off at ${this.minsBeforeCall} minutes)`;
+            this.history.push(cardEmpty);
         } else {
             this.callingCard.forEach(prop => prop.useMinutes(1));
         }
@@ -37,8 +37,6 @@ class CellPhone {
 
     endCall() {
         this.talking = false;
-
-        // let amResult = this.callingCard.map(({ centsPerMinute }) => centsPerMinute);  // can't get .find() to work, try to refactor later
 
         // Collected remainingMinutes at start of call above call(); to subtract remainingMinutes after call to get call duration
         let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);  // can't get .find() to work, try to refactor later
