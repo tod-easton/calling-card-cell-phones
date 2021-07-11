@@ -116,7 +116,7 @@ import CellPhone from './CellPhone.js';
 // console.log(card);
 // console.log(phone);
 
-
+//PASSED
 let card = new CallingCard(20);
 card.addDollars(1); // add 100 cents @ 20 cents/minute = 5 minutes added
 
