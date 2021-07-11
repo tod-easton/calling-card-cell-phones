@@ -12,7 +12,6 @@ class CallingCard {
         } else {
             return this.remainingMinutes = Math.round(addMinutes);
         }
-        
     }
     
     // Get minutes on card
