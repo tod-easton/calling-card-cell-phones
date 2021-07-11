@@ -44,12 +44,12 @@ class CellPhone {
         let talkMin = this.minsBeforeCall - rmValue;
 
         let talkMinRes = '';
-        if (this.history.length === 1) {
-            talkMinRes = `(${talkMin} minute) `;
+        if (talkMin === 1) {
+            talkMinRes = `(${talkMin} minute), `;
         } else if (rmValue === 0) {  // Not needed leaving for reivew / refactor
-            talkMinRes = `(cut off at ${talkMin} minutes)`;
+            talkMinRes = `(cut off at ${talkMin} minutes), `;
         } else {
-            talkMinRes = `(${talkMin} minutes) `;
+            talkMinRes = `(${talkMin} minutes), `;
         }
 
         this.history.push(talkMinRes);
