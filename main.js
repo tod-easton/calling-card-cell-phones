@@ -130,10 +130,9 @@ phone.call("555-3333");
 phone.tick();       // 3 minutes elapsed
 phone.tick();       // 4 minutes elapsed
 phone.tick();       // this is the end of the 5th minute, so the call is ended
-console.log(card.getRemainingMinutes());
 
 phone.getHistory(); // => returns "555-1111 (2 minutes), 555-3333 (cut of at 3 minutes)"
 console.log(phone.getHistory());
 
 card.getRemainingMinutes() // => returns 0, because all 5 minutes have been used up
-// console.log(card.getRemainingMinutes());
+console.log(card.getRemainingMinutes());
