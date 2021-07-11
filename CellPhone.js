@@ -3,14 +3,9 @@
 class CellPhone {
     constructor(callingCard) {
         this.callingCard = [callingCard];
-        // this.ccProps = [callingCard];
         this.talking = false;
         this.calledNumber = [];
-        // this.availMin = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);
-        // console.log(this.availMin);
-        // this.usedMinCount = [];
         this.minsBeforeCall = 0;
-        // this.rmResult = 0;
         this.history = [];
     }
 
@@ -29,15 +24,14 @@ class CellPhone {
     }
 
     tick() {
-        // if () 
-        this.callingCard.forEach(prop => prop.useMinutes(1));  // since this runs CallingCard.useMinutes() on every element/property (including centsPerMinute); is that most efficient?
-
-        // if (this.rmResult != 0) {
-        //     this.callingCard.forEach(prop => prop.useMinutes(1));  // since this runs CallingCard.useMinutes() on every element/property (including centsPerMinute); is that most efficient?
-        // } else {
-        //     this.endCall();
-        // }
-
+        let checkRemaingMinutes = this.callingCard.map(({ remainingMinutes }) => remainingMinutes)[0];
+        // console.log(checkRemaingMinutes);
+        if (checkRemaingMinutes === 1) {
+            this.callingCard.forEach(prop => prop.useMinutes(1));
+            // this.cardEmpty;
+        } else {
+            this.callingCard.forEach(prop => prop.useMinutes(1));
+        }
     }
 
 
@@ -49,13 +43,15 @@ class CellPhone {
         // Collected remainingMinutes at start of call above call(); to subtract remainingMinutes after call to get call duration
         let rmResult = this.callingCard.map(({ remainingMinutes }) => remainingMinutes);  // can't get .find() to work, try to refactor later
         let rmValue = rmResult[0];
-        // console.log('remaing minutes ' + rmValue);
+        // console.log(rmValue);
 
         let talkMin = this.minsBeforeCall - rmValue;
 
         let talkMinRes = '';
         if (this.history.length === 1) {
             talkMinRes = `(${talkMin} minute) `;
+        } else if (rmValue === 0) {
+            talkMinRes = `(cut off at ${talkMin} minutes)`;
         } else {
             talkMinRes = `(${talkMin} minutes) `;
         }
