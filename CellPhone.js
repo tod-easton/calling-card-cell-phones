@@ -23,6 +23,7 @@ class CellPhone {
     }
 
     tick() {
+        // Get / verify if there are available minutes on Calling Card
         let checkRemaingMinutes = this.callingCard.map(({ remainingMinutes }) => remainingMinutes)[0];
         if (checkRemaingMinutes === 1) {
             this.callingCard.forEach(prop => prop.useMinutes(1));
